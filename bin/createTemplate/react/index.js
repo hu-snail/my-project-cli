@@ -16,7 +16,7 @@ export default (config, rootPath) => {
   // 创建相关文件
   moduleTemps.map((item) =>
     fs.writeFileSync(
-      `${rootPath}/src/${item.name}.${item.fileType}`,
+      `${rootPath}/${item.path}.${item.fileType}`,
       getCode(config, item.templatePath)
     )
   );

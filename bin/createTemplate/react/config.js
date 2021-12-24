@@ -20,17 +20,45 @@ export const dirList = [
 /**
  * 路径：template/react
  * @description 导出模版文件
+ * @param {string} path 解析后的路径地址
+ * @param {string} templatePath 模板对应的地址
+ * @param {string} fileType 生成后的文件类型
  * @returns list
  */
 export const moduleTemps = [
   {
-    name: "App",
+    path: "src/App",
     templatePath: "react/src/App",
     fileType: "jsx",
   },
   {
-    name: "main",
+    path: "src/App",
+    templatePath: "react/src/App.css",
+    fileType: "css",
+  },
+  {
+    path: "src/main",
     templatePath: "react/src/main",
     fileType: "jsx",
+  },
+  {
+    path: "index",
+    templatePath: "react/index",
+    fileType: "html",
+  },
+  {
+    path: "src/index",
+    templatePath: "react/src/index.css",
+    fileType: "css",
+  },
+  {
+    path: "package",
+    templatePath: "react/package",
+    fileType: "json",
+  },
+  {
+    path: "vite.config",
+    templatePath: "react/vite.config",
+    fileType: "js",
   },
 ];
