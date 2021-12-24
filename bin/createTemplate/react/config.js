@@ -62,3 +62,22 @@ export const moduleTemps = [
     fileType: "js",
   },
 ];
+
+/**
+ * @description 导出静态资源
+ * @param {string} path 保存的路径地址
+ * @param {string} staticPath 资源对应的地址
+ * @param {string} fileType 生成后的文件类型
+ */
+export const staticList = [
+  {
+    path: "src/logo",
+    staticPath: "react/logo",
+    fileType: "svg",
+  },
+  {
+    path: "src/favicon",
+    staticPath: "react/favicon",
+    fileType: "svg",
+  },
+];
