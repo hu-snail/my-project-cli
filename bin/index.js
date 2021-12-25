@@ -8,6 +8,7 @@
 import fs from "fs";
 import path from "path";
 import createReact from "./createTemplate/react/index.js";
+import { execa } from "execa";
 
 // 获取当前路径
 var currentPath = path.resolve("./");
@@ -16,11 +17,17 @@ const config = {
   packageName: "test",
 };
 
-// 1.创建文件夹
+// 创建文件夹
 fs.mkdirSync(getRootPath());
 
 // 创建React初始化文件
 createReact(config, getRootPath());
+
+// 安装依赖
+execa("yarn", {
+  cwd: getRootPath(),
+  stdio: [2, 2, 2],
+});
 
 /** 获取根目录 */
 function getRootPath() {

@@ -11,9 +11,12 @@
 export const dirList = [
   "src",
   "src/views",
+  "src/views/home",
+  "src/views/detail",
   "src/styles",
   "src/router",
   "src/compontents",
+  "src/compontents/Loading",
   "src/layout",
 ];
 
@@ -61,23 +64,53 @@ export const moduleTemps = [
     templatePath: "react/vite.config",
     fileType: "js",
   },
+  {
+    path: "README",
+    templatePath: "react/readme",
+    fileType: "md",
+  },
+  {
+    path: "src/compontents/Loading/index",
+    templatePath: "react/compontents/Loading/index",
+    fileType: "jsx",
+  },
+  {
+    path: "src/layout/index",
+    templatePath: "react/src/layout/index",
+    fileType: "jsx",
+  },
+  {
+    path: "src/router/index",
+    templatePath: "react/src/router/index",
+    fileType: "jsx",
+  },
+  {
+    path: "src/views/home/index",
+    templatePath: "react/src/views/home/index",
+    fileType: "jsx",
+  },
+  {
+    path: "src/views/detail/index",
+    templatePath: "react/src/views/detail/index",
+    fileType: "jsx",
+  },
 ];
-
 /**
  * @description 导出静态资源
  * @param {string} path 保存的路径地址
  * @param {string} staticPath 资源对应的地址
- * @param {string} fileType 生成后的文件类型
  */
 export const staticList = [
   {
-    path: "src/logo",
-    staticPath: "react/logo",
-    fileType: "svg",
+    path: "src/logo.svg",
+    staticPath: "react/logo.svg",
   },
   {
-    path: "src/favicon",
-    staticPath: "react/favicon",
-    fileType: "svg",
+    path: "src/favicon.vg",
+    staticPath: "react/favicon.svg",
+  },
+  {
+    path: ".gitignore",
+    staticPath: "react/.gitignore",
   },
 ];

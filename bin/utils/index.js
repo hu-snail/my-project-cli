@@ -33,9 +33,9 @@ export function getCode(config, templatePath) {
 export function copyFile(rootPath, item) {
   const fromFileName = path.resolve(
     __dirname,
-    `../../template/${item.staticPath}.${item.fileType}`
+    `../../template/${item.staticPath}`
   );
-  const toFileName = `${rootPath}/${item.path}.${item.fileType}`;
+  const toFileName = `${rootPath}/${item.path}`;
   const rs = fs.createReadStream(fromFileName, {
     autoClose: true,
     encoding: "utf-8",
