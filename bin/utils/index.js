@@ -26,6 +26,20 @@ export function getCode(config, templatePath) {
 }
 
 /**
+ * @description 创建文件或者文件夹
+ * @example 创建vue文件 new fileName -vue --file
+ * @param {String} fileName
+ * @param {Object} option
+ */
+export function createFile(fileName, option) {
+  const options = Object.keys(option);
+  options.map((type) => {
+    if (type === "file" || type === "folder") false;
+    else newFile(fileName, option, type);
+  });
+}
+
+/**
  * @description 复制文件，比如图片/图标静态资源
  * @param {*} rootPath 根目录
  * @param {*} item 静态文件配置项
@@ -62,4 +76,13 @@ export function copyFile(rootPath, item) {
   rs.on("end", () => {
     ws.end();
   });
+}
+
+function newFile(fileName, option, type) {
+  const isFolder = option.file ? true : false;
+  const fileType = type.toLowerCase();
+  if (isFolder) fs.mkdirSync(`./${fileName}`);
+  else {
+    fs.writeFileSync(`./${fileName}.${fileType}`, "vue");
+  }
 }
