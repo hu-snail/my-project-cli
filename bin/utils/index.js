@@ -6,6 +6,7 @@
 import ejs from "ejs";
 import fs from "fs";
 import path from "path";
+import { execa } from "execa";
 import { fileURLToPath } from "url";
 const __dirname = fileURLToPath(import.meta.url);
 
@@ -28,14 +29,44 @@ export function getCode(config, templatePath) {
 /**
  * @description 创建文件或者文件夹
  * @example 创建vue文件 new fileName -vue --file
- * @param {String} fileName
- * @param {Object} option
+ * @param {String} fileName 文件名称
+ * @param {Object} option 指令项
  */
 export function createFile(fileName, option) {
   const options = Object.keys(option);
   options.map((type) => {
     if (type === "file" || type === "folder") false;
     else newFile(fileName, option, type);
+  });
+}
+
+/**
+ * @description 安装插件
+ * @param {String} pluginName 插件名称
+ * @param {Object} option 指令项
+ */
+export function installPlugin(pluginName, option) {
+  const options = Object.keys(option);
+  const isYarn = option.Yarn ? "add" : "i";
+  const isSaveDev = option.saveDev ? "-D" : "-S";
+  if (pluginName && !options.length) {
+    execa(`yarn add ${pluginName}`, {
+      cwd: "./",
+      stdio: [2, 2, 2],
+      shell: true,
+    });
+  }
+  options.map((type) => {
+    if (type === "saveDev" || type === "save") false;
+    else {
+      const tool = type.toLowerCase();
+      const installStr = `${tool} ${isYarn} ${pluginName} ${isSaveDev}`;
+      execa(installStr, {
+        cwd: "./",
+        stdio: [2, 2, 2],
+        shell: true,
+      });
+    }
   });
 }
 

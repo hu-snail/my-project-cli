@@ -1,3 +1,8 @@
+/**
+ * @description 创建项目指令
+ * @author hu-snail 1217437592@qq.com
+ * @createtime 2021-12-26
+ */
 export default (program, call) => {
   program
     .command("create <app-name>")

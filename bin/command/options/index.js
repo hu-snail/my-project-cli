@@ -1,4 +1,5 @@
 import create from "./create.js";
-import _new from "./new.js";
+import newFile from "./new.js";
+import addPlugin from "./add.js";
 
-export { create, _new };
+export { create, newFile, addPlugin };

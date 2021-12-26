@@ -1,4 +1,10 @@
-export default (program, call) => {
+/**
+ * @description 创建文件或文件夹
+ * @author hu-snail 1217437592@qq.com
+ * @createtime 2021-12-26
+ */
+import { createFile } from "../../utils/index.js";
+export default (program) => {
   program
     .command("new <file-name>")
     .description("create a new file")
@@ -10,6 +16,6 @@ export default (program, call) => {
     .option("--file", "create a new file")
     .option("--folder", "create a new folder")
     .action((fileName, option) => {
-      call && call({ fileName, option });
+      createFile(fileName, option);
     });
 };
