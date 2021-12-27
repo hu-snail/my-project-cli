@@ -35,8 +35,7 @@ export function getCode(config, templatePath) {
 export function createFile(fileName, option) {
   const options = Object.keys(option);
   options.map((type) => {
-    if (type === "file" || type === "folder") false;
-    else newFile(fileName, option, type);
+    if (type !== "file" && type !== "folder") newFile(fileName, option, type);
   });
 }
 
@@ -110,7 +109,7 @@ export function copyFile(rootPath, item) {
 }
 
 function newFile(fileName, option, type) {
-  const isFolder = option.file ? true : false;
+  const isFolder = option.folder ? true : false;
   const fileType = type.toLowerCase();
   if (isFolder) fs.mkdirSync(`./${fileName}`);
   else {

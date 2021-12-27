@@ -8,35 +8,27 @@
 import fs from "fs";
 import path from "path";
 import createReact from "./createTemplate/react/index.js";
-// import options from "./inquirerOption/index.js";
 import { execa } from "execa";
 import command from "./command/index.js";
 
 // 获取当前路径
 var currentPath = path.resolve("./");
 
-// const inputConfig = await options();
-// console.log(inputConfig);
-
-command();
-
-// const config = {
-//   packageName: "test",
-// };
-
+const config = await command();
+console.log(config, "---");
 // // 创建文件夹
-// fs.mkdirSync(getRootPath());
+fs.mkdirSync(getRootPath());
 
 // // 创建React初始化文件
-// createReact(config, getRootPath());
+createReact(config, getRootPath());
 
-// // // 安装依赖
-// execa("yarn", {
-//   cwd: getRootPath(),
-//   stdio: [2, 2, 2],
-// });
+// 安装依赖
+execa("yarn", {
+  cwd: getRootPath(),
+  stdio: [2, 2, 2],
+});
 
 /** 获取根目录 */
 function getRootPath() {
-  return `${currentPath}/${config.packageName}`;
+  return `${currentPath}/${config.projectName}`;
 }
