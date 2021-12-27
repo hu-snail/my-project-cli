@@ -1,16 +1,16 @@
 {
   "name": "project-cli",
-  "version": "1.0.1",
+  "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "bin": "--experimental-json-modules ./bin/index.js",
+  "bin": "./bin/index.js",
   "type": "module",
   "files": [
     "bin",
     "package.json"
   ],
   "scripts": {
-    "test": "rm -rf ./test & node --experimental-json-modules ./bin/index.js"
+    "test": "rm -rf ./test & node ./bin/index.js"
   },
   "keywords": [],
   "author": "",

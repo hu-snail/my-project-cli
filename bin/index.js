@@ -8,7 +8,7 @@
 import fs from "fs";
 import path from "path";
 import createReact from "./createTemplate/react/index.js";
-import { execa } from "execa";
+import { execaSync } from "execa";
 import command from "./command/index.js";
 
 // 获取当前路径
@@ -23,9 +23,15 @@ fs.mkdirSync(getRootPath());
 createReact(config, getRootPath());
 
 // 安装依赖
-execa("yarn", {
+execaSync("yarn", {
   cwd: getRootPath(),
   stdio: [2, 2, 2],
+});
+
+execaSync(`cd ${getRootPath()} && yarn dev`, {
+  cwd: "./",
+  stdio: [2, 2, 2],
+  shell: true,
 });
 
 /** 获取根目录 */

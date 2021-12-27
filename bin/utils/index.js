@@ -34,6 +34,7 @@ export function getCode(config, templatePath) {
  */
 export function createFile(fileName, option) {
   const options = Object.keys(option);
+  if (!options.length && fileName) fs.mkdirSync(`./${fileName}`);
   options.map((type) => {
     if (type !== "file" && type !== "folder") newFile(fileName, option, type);
   });
@@ -49,7 +50,7 @@ export function installPlugin(pluginName, option) {
   const isYarn = option.Yarn ? "add" : "i";
   const isSaveDev = option.saveDev ? "-D" : "-S";
   if (pluginName && !options.length) {
-    execa(`yarn add ${pluginName}`, {
+    execa(`npm i ${pluginName}`, {
       cwd: "./",
       stdio: [2, 2, 2],
       shell: true,
@@ -111,6 +112,7 @@ export function copyFile(rootPath, item) {
 function newFile(fileName, option, type) {
   const isFolder = option.folder ? true : false;
   const fileType = type.toLowerCase();
+
   if (isFolder) fs.mkdirSync(`./${fileName}`);
   else {
     fs.writeFileSync(`./${fileName}.${fileType}`, "vue");
