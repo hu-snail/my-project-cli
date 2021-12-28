@@ -8,21 +8,15 @@ export default () => {
   return {
     type: "list",
     prefix: "🎉",
-    name: "lang",
+    name: "tempalte",
     choices: [
       {
-        name: "React",
+        name: "react",
       },
       {
-        name: "Vue3",
-      },
-      {
-        name: "Vue",
-      },
-      {
-        name: "H5",
+        name: "vue",
       },
     ],
-    message: "Select a development language",
+    message: "Select a framework",
   };
 };

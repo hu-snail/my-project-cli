@@ -4,7 +4,6 @@
  * @createtime 2021-12-27
  */
 
-import changeLang from "./lang.js";
-import changeBuild from "./build.js";
+import changeTemlate from "./template.js";
 
-export { changeLang, changeBuild };
+export { changeTemlate };
