@@ -7,32 +7,35 @@
 
 import fs from "fs";
 import path from "path";
-import createReact from "./createTemplate/react/index.js";
+import { createReact } from "./createTemplate/react/index.js";
 import { execaSync } from "execa";
 import command from "./command/index.js";
+import { initInquires } from "./inquirers/index.js";
 
-// 获取当前路径
 var currentPath = path.resolve("./");
+let config = await command();
 
-const config = await command();
-console.log(config, "---");
-// // 创建文件夹
-fs.mkdirSync(getRootPath());
+const isExists = fs.existsSync(getRootPath());
 
-// // 创建React初始化文件
-createReact(config, getRootPath());
-
-// 安装依赖
-execaSync("yarn", {
-  cwd: getRootPath(),
-  stdio: [2, 2, 2],
+const initConfig = await initInquires(config.template, {
+  isExists: isExists,
+  path: `${currentPath}/${config.projectName}`,
 });
 
-execaSync(`cd ${getRootPath()} && yarn dev`, {
-  cwd: "./",
-  stdio: [2, 2, 2],
-  shell: true,
-});
+console.log(initConfig);
+
+// createReact(config, getRootPath());
+
+// execaSync("yarn", {
+//   cwd: getRootPath(),
+//   stdio: [2, 2, 2],
+// });
+
+// execaSync(`cd ${getRootPath()} && yarn dev`, {
+//   cwd: "./",
+//   stdio: [2, 2, 2],
+//   shell: true,
+// });
 
 /** 获取根目录 */
 function getRootPath() {

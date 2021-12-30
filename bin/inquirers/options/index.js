@@ -4,6 +4,7 @@
  * @createtime 2021-12-27
  */
 
-import changeTemlate from "./template.js";
-
-export { changeTemlate };
+import { changeTemplate } from "./template.js";
+import { reactInquire } from "./react.js";
+import { changeVariant, changeFileStatus } from "./common.js";
+export { changeTemplate, reactInquire, changeVariant, changeFileStatus };

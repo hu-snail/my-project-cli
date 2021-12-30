@@ -8,7 +8,7 @@ import fs from "fs";
 
 import { dirList, moduleTemps, staticList } from "./config.js";
 
-export default (config, rootPath) => {
+export const createReact = (config, rootPath) => {
   // 创建相关文件夹
   dirList.map((item) => {
     fs.mkdirSync(`${rootPath}/${item}`);

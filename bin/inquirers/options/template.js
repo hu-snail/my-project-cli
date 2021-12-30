@@ -4,10 +4,9 @@
  * @createtime 2021-12-27
  */
 
-export default () => {
+export const changeTemplate = () => {
   return {
     type: "list",
-    prefix: "🎉",
     name: "tempalte",
     choices: [
       {

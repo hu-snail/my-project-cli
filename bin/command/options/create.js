@@ -5,7 +5,7 @@
  */
 
 import inquirer from "inquirer";
-import { changeTemlate } from "../../inquirers/options/index.js";
+import { changeTemplate } from "../../inquirers/options/index.js";
 import commander from "commander";
 import chalk from "chalk";
 export default (program, call) => {
@@ -20,7 +20,7 @@ export default (program, call) => {
       if (!option.template) {
         item = await getFramework(option);
       } else item = option;
-      call && call({ projectName, ...item });
+      call && call({ method, projectName, ...item });
     });
 };
 
@@ -59,6 +59,6 @@ function validatAppName(appName) {
 }
 
 async function getFramework() {
-  let answer = await inquirer.prompt([changeTemlate()]);
+  let answer = await inquirer.prompt([changeTemplate()]);
   return answer.template;
 }
