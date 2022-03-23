@@ -1,3 +1,10 @@
+/**
+ * @description 选择输入项
+ * @module changeTemplate 选择模版
+ * @module changeVariant 选择变量
+ * @module reactInquire react相关输入项
+ * @module changeFileStatus 文件状态选项
+ */
 import inquirer from "inquirer";
 import {
   changeTemplate,

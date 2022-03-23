@@ -60,5 +60,5 @@ function validatAppName(appName) {
 
 async function getFramework() {
   let answer = await inquirer.prompt([changeTemplate()]);
-  return answer.template;
+  return answer;
 }

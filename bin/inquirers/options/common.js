@@ -10,9 +10,6 @@ export const changeVariant = () => {
     name: "features",
     choices: [
       {
-        name: "JavaScript",
-      },
-      {
         name: "TypeScript",
       },
       {
@@ -28,10 +25,16 @@ export const changeVariant = () => {
         name: "Data State",
       },
     ],
-    message: "Check the features needed for your project",
+    message:
+      "Check the features needed for your project(default by Javascript)",
   };
 };
 
+/**
+ * @description 选择文件
+ * @param {*} path
+ * @returns
+ */
 export const changeFileStatus = (path) => {
   return {
     type: "list",

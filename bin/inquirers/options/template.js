@@ -7,7 +7,7 @@
 export const changeTemplate = () => {
   return {
     type: "list",
-    name: "tempalte",
+    name: "template",
     choices: [
       {
         name: "react",
